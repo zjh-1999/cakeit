@@ -12,10 +12,10 @@
 		标题:<input type="text" name="title"><br>
 		<br> 封面图片:<input type="file" name="img"><br>
 		<br> 材料:
-		<textArea rows=5 cols=50 name="material"></textArea>
+		<textArea rows=5 cols=100 name="material"></textArea>
 		<br>
 		<br> 步骤:
-		<textArea rows=10 cols=50 name="step"></textArea>
+		<textArea rows=10 cols=100 name="step"></textArea>
 		<br>
 		<br> 简易程度:<input type="radio" name="level" value="简单">简单&nbsp;&nbsp;
 		<input type="radio" name="level" value="中等">中等&nbsp;&nbsp; <input
