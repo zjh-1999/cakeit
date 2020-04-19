@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SignUp</title>
+<style>
+* {
+	paddng: 10px;
+	margin: 10px;
+}
+
+#signup {
+	line-height: 60px;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<h1>注册</h1>
+	<br>
+	<br>
+	<br>
+	<form method="post" action="signup" id="signup">
+		用户名:<input type="text" name="username"><br> 密码:<input
+			type="password" name="password"><br> 性别:<input
+			type="radio" name="gender" value="male">男&nbsp;&nbsp; <input
+			type="radio" name="gender" value="female">女<br> 手机号:<input
+			type="text" name="phonenumber"
+			oninput="value=value.replace(/[^\d]/g,'')"><br> <input
+			type="submit" value="提交">
+	</form>
+</body>
+</html>

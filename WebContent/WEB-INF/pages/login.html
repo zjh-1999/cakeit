@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+* {
+	paddng: 10px;
+	margin: 10px;
+}
+
+#login {
+	line-height: 60px;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<h1>登录</h1>
+	<br>
+	<br>
+	<br>
+	<form method="post" action="login" id="login">
+		手机号:<input type="text" name="phonenumber"
+			oninput="value=value.replace(/[^\d]/g,'')"><br> 密码:<input
+			type="password" name="password"><br> <input
+			type="submit" value="提交">
+	</form>
+</body>
+</html>
