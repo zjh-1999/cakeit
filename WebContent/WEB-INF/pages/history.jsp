@@ -11,7 +11,7 @@
 		ArrayList<Menu> history = (ArrayList<Menu>) request.getAttribute("history");
 	%>
 	<%
-		for (Menu menu : history) {
+		for (Menu menu : history){
 	%>
 
 	<li><a href="menuDetail?id=<%=menu.getId()%>"><img
