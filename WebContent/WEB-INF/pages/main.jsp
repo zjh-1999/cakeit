@@ -91,16 +91,35 @@ img {
 
 </head>
 <body>
+	<%
+		String islogin=(String)session.getAttribute("islogin");
+		String first = (String) request.getAttribute("first");
+		String second = (String) request.getAttribute("second");
+		if(islogin==null) {
+	%>
 	<div id="header">
 		<div id="login">
-			<br> <a href="jumpToLogin">登录</a>&nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="jumpToSignup">注册</a>
+			<br> <a href="jumpToLogin"><%=first %></a>&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="jumpToSignup"><%=second %></a>
 		</div>
 		<div id="navbar">
 			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="#">社区</a>
 			<a href="#">购买</a> <a href="my">我的</a>
 		</div>
 	</div>
+	<%}
+		else{%>
+	<div id="header">
+		<div id="login">
+			<br> <%=first %>&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="logout"><%=second %></a>
+		</div>
+		<div id="navbar">
+			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="#">社区</a>
+			<a href="#">购买</a> <a href="my">我的</a>
+		</div>
+	</div>
+	<%} %>
 	<div id="introduce">
 		<div id="intro">
 			烘焙的世界神奇而绚丽，吸引了一波又一波的人来朝圣。食物最美的时刻，是在烤箱里迸发的一瞬间，这时候，食物仿佛有了生命力，展现出其最美的姿态，“叮”的一声就可以看见热气腾腾、飘着香味的美食。享受着出自自己之手的美食，刺激着味蕾和感觉神经，在心中留下了特别的味道。在这里，我们就一起来感受一下美食的魅力吧！<br>
@@ -112,12 +131,7 @@ img {
 		</span>
 	</div>
 	<div id="recommend">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br> <br> <br>
 		<%
 			List<Menu> menulist = (List<Menu>) request.getAttribute("menulist");
 			for (Menu menu : menulist) {
@@ -125,11 +139,9 @@ img {
 		<a href="menuDetail?id=<%=menu.getId()%>"><img
 			src=<%=menu.getImg()%> height="30px"></a>
 		<%
-		}
-	%>
-		<br>
-		<br>
-		<br>
+			}
+		%>
+		<br> <br> <br>
 	</div>
 </body>
 </html>

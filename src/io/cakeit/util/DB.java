@@ -106,6 +106,28 @@ public class DB {
 		}
 		return menu;
 	}
+	public ArrayList<Menu> getMenuByIds(String[] ids) {
+
+		String sql = "select * from menu where id=?";
+		ArrayList<Menu> menu = new ArrayList<Menu>();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			for(String id:ids) {
+				pstmt.setInt(1, Integer.parseInt(id));
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					menu.add(new Menu(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+							rs.getString(6), rs.getString(7), rs.getInt(8)));
+	
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return menu;
+	}
 
 	public void updateMenuViewTime(Menu menu) {
 		String sql = "update menu set viewtimes=? where id=?";

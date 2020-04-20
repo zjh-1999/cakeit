@@ -11,5 +11,6 @@
 <a href="lookMyMenu">查看我的菜谱</a><br>
 <a href="addMenu">上传我的菜谱</a><br>
 <a href="collectMenuList">查看我的收藏</a><br>
+<a href="history">历史浏览记录</a><br>
 </body>
 </html>

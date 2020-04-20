@@ -1,6 +1,12 @@
 package io.cakeit.entity;
 
-public class Menu {
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
+public class Menu implements HttpSessionBindingListener{
 	private int id;
 	private int userid;
 	private String title;
@@ -95,5 +101,26 @@ public class Menu {
 
 	public void setViewtimes(int viewtimes) {
 		this.viewtimes = viewtimes;
+	}
+
+	@Override
+	public void valueBound(HttpSessionBindingEvent event) {
+		HttpSession session=event.getSession();
+		ArrayList<Menu> history=null;
+		if(session.getAttribute("history")!=null) {
+			history=(ArrayList<Menu>) session.getAttribute("history");
+		}else {
+			history=new ArrayList<Menu>();
+		}
+		history.add(this);
+		session.setAttribute("history", history);
+		
+		
+	}
+
+	@Override
+	public void valueUnbound(HttpSessionBindingEvent arg0) {
+		
+		
 	}
 }

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import io.cakeit.entity.Menu;
 import io.cakeit.util.DB;
@@ -23,6 +24,16 @@ public class MainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String islogin=(String)session.getAttribute("islogin");
+		if(islogin==null) {
+			request.setAttribute("first","登录");
+			request.setAttribute("second","注册");
+		}
+		else {
+			request.setAttribute("first", "欢迎您");
+			request.setAttribute("second", "退出");
+		}
 		DB db = new DB();
 		List<Menu> menulist = db.bestMenu();
 		request.setAttribute("menulist", menulist);
