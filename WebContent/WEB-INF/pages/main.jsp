@@ -103,7 +103,7 @@ img {
 				href="jumpToSignup"><%=second %></a>
 		</div>
 		<div id="navbar">
-			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="#">社区</a>
+			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="Community">社区</a>
 			<a href="ItemList">购买</a> <a href="my">我的</a>
 		</div>
 	</div>
@@ -115,7 +115,7 @@ img {
 				href="logout"><%=second %></a>
 		</div>
 		<div id="navbar">
-			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="#">社区</a>
+			<a href="introduce">入门</a> <a href="menuList">菜谱</a> <a href="Community">社区</a>
 			<a href="ItemList">购买</a> <a href="my">我的</a>
 		</div>
 	</div>
