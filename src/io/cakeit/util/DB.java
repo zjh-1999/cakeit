@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.cakeit.entity.Collect;
+import io.cakeit.entity.Item;
 import io.cakeit.entity.Menu;
 import io.cakeit.entity.User;
 
@@ -19,7 +20,7 @@ public class DB {
 	String driver = "com.mysql.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/java?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
 	String user = "root";
-	String psw = "zjh19990114";
+	String psw = "179917";
 
 	public DB() {
 		try {
@@ -68,6 +69,61 @@ public class DB {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	public List<Item> getAllItems() {
+		ArrayList<Item> items = new ArrayList<Item>();
+		String sql = "select * from item";
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				items.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5),
+							rs.getFloat(6), rs.getString(7)));
+			}
+			
+			rs.close();
+			con.close();
+		} catch (SQLException e) {
+	
+			e.printStackTrace();
+		}
+		return items;
+	}
+
+	public Item getItemById(int id) {
+
+		String sql = "select * from item where id=?";
+		Item item = null;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				item = new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getFloat(5),
+						rs.getFloat(6), rs.getString(7));
+			}
+			rs.close();
+			con.close();
+		} catch (SQLException e) {
+	
+			e.printStackTrace();
+		}
+		return item;
+	}
+	
+	public void updateItemAmount(Item item,float count) {
+		String sql = "update item set amount =? where id =?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setFloat(1, item.getAmount() - count);
+			pstmt.setInt(2, item.getId());
+			pstmt.executeUpdate();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public List<Menu> getMenuList() {
