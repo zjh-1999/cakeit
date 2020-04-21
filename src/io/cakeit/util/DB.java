@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.cakeit.entity.Article;
 import io.cakeit.entity.Collect;
 import io.cakeit.entity.Item;
 import io.cakeit.entity.Menu;
@@ -69,6 +70,64 @@ public class DB {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	public boolean releaseArticle(Article article) {
+		try {
+			String sql = "insert into article(title,content,releasetime) values(?,?,?);";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, article.getTitle());
+			pstmt.setString(2, article.getContent());
+			pstmt.setString(3, article.getReleasetime());
+			int result = pstmt.executeUpdate();
+			if (result != 0) {
+				return true;
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public List<Article> getAllArticles() {
+		ArrayList<Article> articles = new ArrayList<Article>();
+		String sql = "select * from article";
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				articles.add(new Article(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+			}
+			
+			rs.close();
+			con.close();
+		} catch (SQLException e) {
+	
+			e.printStackTrace();
+		}
+		return articles;
+	}
+
+	public Article getArticleById(int id) {
+
+		String sql = "select * from article where id=?";
+		Article article = null;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				article = new Article(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+			}
+			rs.close();
+			con.close();
+		} catch (SQLException e) {
+	
+			e.printStackTrace();
+		}
+		return article;
 	}
 	
 	public List<Item> getAllItems() {
