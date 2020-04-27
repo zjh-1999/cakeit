@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("username", user.getUsername());
 			session.setAttribute("islogin", "okay"); 
 			session.setAttribute("user", user);
-			session.setAttribute("loginmsg", "login success");
+			session.setAttribute("loginmsg", "登录成功");
 		}
 
 		request.getRequestDispatcher("WEB-INF/pages/loginOkay.jsp").forward(request, response);

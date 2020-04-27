@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -21,7 +21,8 @@
 		<%
 			for (Item item : items) {
 		%>
-		<li><a href="ItemDetail?id=<%=item.getId()%>"><img src=<%=item.getIcon()%> width="100"> <%=item.getItemname()%></a>&nbsp;&nbsp;<%=item.getPrice()%></li>
+		<li><a href="ItemDetail?id=<%=item.getId()%>"><img src=<%=item.getIcon()%> width="100"> <%=item.getItemname()%></a>&nbsp;&nbsp;<%=item.getPrice()%><br><br>
+	</li>
 		<%
 			}
 		%>
