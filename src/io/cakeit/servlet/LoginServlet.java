@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("loginmsg", "login failed");
 		} else {
 			session.setAttribute("username", user.getUsername());
-			session.setAttribute("islogin", "okay"); // session派发通行证
+			session.setAttribute("islogin", "okay"); 
 			session.setAttribute("user", user);
 			session.setAttribute("loginmsg", "login success");
 		}
