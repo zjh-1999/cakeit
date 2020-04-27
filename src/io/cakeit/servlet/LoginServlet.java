@@ -31,12 +31,12 @@ public class LoginServlet extends HttpServlet {
 		DB db = new DB();
 		User user = db.login(phonenumber, password);
 		if (user == null) {
-			session.setAttribute("loginmsg", "登录失败");
+			session.setAttribute("loginmsg", "login failed");
 		} else {
 			session.setAttribute("username", user.getUsername());
-			session.setAttribute("islogin", "okay"); // session派发通行证
+			session.setAttribute("islogin", "okay"); // session�ɷ�ͨ��֤
 			session.setAttribute("user", user);
-			session.setAttribute("loginmsg", "登录成功");
+			session.setAttribute("loginmsg", "login success");
 		}
 
 		request.getRequestDispatcher("WEB-INF/pages/loginOkay.jsp").forward(request, response);

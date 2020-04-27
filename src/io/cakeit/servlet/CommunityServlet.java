@@ -46,7 +46,7 @@ public class CommunityServlet extends HttpServlet {
 		DB db=new DB();
 		boolean a=db.releaseArticle(article);
 		if(a==true) {
-			request.setAttribute("signupmsg", "成功");
+			request.setAttribute("signupmsg", "发布成功");
 		}
 		else {
 			request.setAttribute("signupmsg", "失败");

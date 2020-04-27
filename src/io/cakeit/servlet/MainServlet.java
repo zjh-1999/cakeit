@@ -31,8 +31,8 @@ public class MainServlet extends HttpServlet {
 			request.setAttribute("second","注册");
 		}
 		else {
-			request.setAttribute("first", "欢迎您");
-			request.setAttribute("second", "退出");
+			request.setAttribute("first", "您好");
+			request.setAttribute("second", "注销");
 		}
 		DB db = new DB();
 		List<Menu> menulist = db.bestMenu();

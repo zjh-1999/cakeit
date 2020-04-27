@@ -34,9 +34,9 @@ public class SignupServlet extends HttpServlet {
 		DB db = new DB();
 		boolean a = db.signUp(user);
 		if (a == true) {
-			request.setAttribute("signupmsg", "æ³¨å†ŒæˆåŠŸ");
+			request.setAttribute("signupmsg", "×¢²á³É¹¦");
 		} else {
-			request.setAttribute("signupmsg", "è¯¥æ‰‹æœºå·å·²æ³¨å†Œ");
+			request.setAttribute("signupmsg", "¸ÃÊÖ»úºÅÒÑ×¢²á");
 		}
 		request.getRequestDispatcher("WEB-INF/pages/signupOkay.jsp").forward(request, response);
 	}
