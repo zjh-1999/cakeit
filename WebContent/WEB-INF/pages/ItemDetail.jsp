@@ -11,7 +11,7 @@
 		Item item = (Item) request.getAttribute("item");
 	%>
 
-	<h1>shopping cart</h1>
+	<h1>购物车</h1>
 	<hr>
 	<h2>Items to add</h2>
 	<br>
