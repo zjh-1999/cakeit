@@ -10,6 +10,7 @@
 	<%
 		ArrayList<Menu> history = (ArrayList<Menu>) request.getAttribute("history");
 	%>
+	hello
 	<%
 		for (Menu menu : history){
 	%>
