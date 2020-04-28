@@ -25,9 +25,6 @@ public class CommunityServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
 		DB db = new DB();
 		List<Article> articles = db.getAllArticles();
 		request.setAttribute("articles", articles);
@@ -36,8 +33,6 @@ public class CommunityServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
 		String releasetime=request.getParameter("releasetime");
@@ -46,10 +41,10 @@ public class CommunityServlet extends HttpServlet {
 		DB db=new DB();
 		boolean a=db.releaseArticle(article);
 		if(a==true) {
-			request.setAttribute("signupmsg", "∑¢≤º≥…π¶");
+			request.setAttribute("signupmsg", "ÊàêÂäü");
 		}
 		else {
-			request.setAttribute("signupmsg", " ß∞‹");
+			request.setAttribute("signupmsg", "Êú™ÁôªÂΩï");
 		}
 		request.getRequestDispatcher("WEB-INF/pages/releaseArticle.jsp").forward(request,response);
 	}

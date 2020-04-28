@@ -19,9 +19,9 @@ public class DB {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	String driver = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/java?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
+	String url = "jdbc:mysql://localhost:3306/cakeit?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
 	String user = "root";
-	String psw = "179917";
+	String psw = "zjh19990114";
 
 	public DB() {
 		try {
