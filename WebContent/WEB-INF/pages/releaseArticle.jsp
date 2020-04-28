@@ -10,13 +10,13 @@
 	<h1>发布</h1>
 	<hr><br>
 	<%
-		String msg = (String) request.getAttribute("signupmsg");
+		String msg = (String) request.getAttribute("releasemsg");
 	%>
 	<b>
 		<%=msg%>
 	</b>
 	<br>
 	<p>
-	<a href="community">BACK</a>
+	<a href="Community">BACK</a>
 </body>
 </html>

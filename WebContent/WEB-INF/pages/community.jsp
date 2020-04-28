@@ -26,7 +26,9 @@ ul.a {list-style-type:square;}
 	<input type="hidden" name="releasetime" value="<%=date.toString()%>">
 	<input type="submit" value="上传">
 	</form>
+	<br> 
 
+	<a href="main">返回主页</a>
 	<hr>
 	<h3>Articles</h3>
 <%
