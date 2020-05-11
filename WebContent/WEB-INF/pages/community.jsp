@@ -18,7 +18,7 @@ ul.a {list-style-type:square;}
 
 %>
 
-	<form method="post" action="community">
+	<form method="post" action="Community">
 	<input type="text" name="title" size="70" maxlength="15" placeholder="标题，15字以内"><br>
 	<br>
 	<textarea name="content" rows="5" cols="60" maxlength="140" placeholder="内容，140字以内"></textarea><br>

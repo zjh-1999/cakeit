@@ -42,7 +42,7 @@ public class CommunityServlet extends HttpServlet {
 		
 		boolean a=db.releaseArticle(article);
 		if(a==true) {
-			request.setAttribute("releasemsg", "成功");
+			request.setAttribute("releasemsg", "发布成功！");
 		}
 		else {
 			request.setAttribute("releasemsg", "失败");
