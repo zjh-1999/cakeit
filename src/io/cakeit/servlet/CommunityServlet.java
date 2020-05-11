@@ -37,14 +37,15 @@ public class CommunityServlet extends HttpServlet {
 		String content=request.getParameter("content");
 		String releasetime=request.getParameter("releasetime");
 		
-		Article article=new Article(title,content,releasetime);
 		DB db=new DB();
+		Article article=new Article(title,content,releasetime);
+		
 		boolean a=db.releaseArticle(article);
 		if(a==true) {
-			request.setAttribute("signupmsg", "æˆåŠŸ");
+			request.setAttribute("releasemsg", "·¢²¼³É¹¦£¡");
 		}
 		else {
-			request.setAttribute("signupmsg", "æœªç™»å½•");
+			request.setAttribute("releasemsg", "Ê§°Ü");
 		}
 		request.getRequestDispatcher("WEB-INF/pages/releaseArticle.jsp").forward(request,response);
 	}

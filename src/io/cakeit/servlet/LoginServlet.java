@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("username", user.getUsername());
 			session.setAttribute("islogin", "okay"); 
 			session.setAttribute("user", user);
-			session.setAttribute("loginmsg", "ç™»å½•æˆåŠŸ");
+			session.setAttribute("loginmsg", "µÇÂ½³É¹¦");
 		}
 
 		request.getRequestDispatcher("WEB-INF/pages/loginOkay.jsp").forward(request, response);
