@@ -46,9 +46,9 @@ public class CommunityServlet extends HttpServlet {
 
 		boolean a = db.releaseArticle(article);
 		if (a == true) {
-			request.setAttribute("releasemsg", "�ɹ���");
+			request.setAttribute("releasemsg", "okay");
 		} else {
-			request.setAttribute("releasemsg", "ʧ��");
+			request.setAttribute("releasemsg", "notokay");
 		}
 		request.getRequestDispatcher("WEB-INF/pages/releaseArticle.jsp").forward(request, response);
 	}

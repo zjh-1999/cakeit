@@ -26,7 +26,7 @@ public class HistoryServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ArrayList<Menu> history = (ArrayList<Menu>) session.getAttribute("history");
 		String str = "";
-		ArrayList<Menu> historyMenu=null;
+		ArrayList<Menu> historyMenu = null;
 		if (history != null) {
 			for (Menu menu : history) {
 				str = str + menu.getId() + "-";
