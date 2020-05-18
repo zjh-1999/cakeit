@@ -7,16 +7,19 @@
 <title>History</title>
 </head>
 <body>
+<h1>历史浏览记录</h1><br><br>
 	<%
 		ArrayList<Menu> history = (ArrayList<Menu>) request.getAttribute("history");
+		if (history != null) {
 	%>
 	<%
-		for (Menu menu : history){
+		for (Menu menu : history) {
 	%>
 
 	<li><a href="menuDetail?id=<%=menu.getId()%>"><img
 			src=<%=menu.getImg()%> width="100"><%=menu.getTitle()%></a></li>
 	<%
+		}
 		}
 	%>
 </body>
