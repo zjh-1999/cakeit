@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
+		String phonenumber = request.getParameter("phonenumber");
 		HttpSession session = request.getSession();
 		String password = request.getParameter("password");
 		DB db = new DB();
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("username", user.getUsername());
 			session.setAttribute("islogin", "okay"); 
 			session.setAttribute("user", user);
-			session.setAttribute("loginmsg", "µÇÂ½³É¹¦");
+			session.setAttribute("loginmsg", "login okay");
 		}
 
 		request.getRequestDispatcher("WEB-INF/pages/loginOkay.jsp").forward(request, response);

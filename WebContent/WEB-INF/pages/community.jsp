@@ -45,7 +45,7 @@ ul.a {list-style-type:square;}
 		<%=article.getTitle()%><br>
 		<%=article.getContent()%><br>
 		<%=article.getReleasetime()%><br>
-		<br>
+		
 		<hr></li></ul>
 		<%
 			}

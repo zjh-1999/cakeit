@@ -1,7 +1,6 @@
-package io.cakeit.util;
+package io.cakeit.entity;
 
 import java.util.ArrayList;
-import io.cakeit.entity.Item;
 
 public class Cart {
 

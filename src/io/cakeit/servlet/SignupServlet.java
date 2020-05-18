@@ -29,14 +29,14 @@ public class SignupServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
-		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
-		User user = new User(username, password, gender, phonenumber);
+		String number=request.getParameter("phonenumber");
+		User user = new User(username, password, gender, number);
 		DB db = new DB();
 		boolean a = db.signUp(user);
 		if (a == true) {
-			request.setAttribute("signupmsg", "×¢²á³É¹¦");
+			request.setAttribute("signupmsg", "æ³¨å†ŒæˆåŠŸ");
 		} else {
-			request.setAttribute("signupmsg", "×¢²áÊ§°Ü£¬¸ÃÊÖ»úºÅÒÑ±»×¢²á");
+			request.setAttribute("signupmsg", "æ³¨å†Œå¤±è´¥");
 		}
 		request.getRequestDispatcher("WEB-INF/pages/signupOkay.jsp").forward(request, response);
 	}

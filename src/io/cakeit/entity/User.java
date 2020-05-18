@@ -5,9 +5,9 @@ public class User {
 	private String username;
 	private String password;
 	private String sex;
-	private int phonenumber;
+	private String phonenumber;
 
-	public User(String username, String password, String sex, int phonenumber) {
+	public User(String username, String password, String sex, String phonenumber) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -15,7 +15,7 @@ public class User {
 		this.phonenumber = phonenumber;
 	}
 
-	public User(int id, String username, String password, String sex, int phonenumber) {
+	public User(int id, String username, String password, String sex, String phonenumber) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -56,11 +56,11 @@ public class User {
 		this.sex = sex;
 	}
 
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 

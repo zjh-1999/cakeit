@@ -3,6 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<script type="text/javascript">
+function checknumber() {
+	var check = false;
+	var number = document.getElementById("number").value;
+	if(!(/^1[3456789]\d{9}$/.test(number))){ 
+		document.getElementById("checktext2").innerHTML = "  × 手机号格式错误，请重新输入";
+		document.getElementById("checktext2").style.color="red";
+		
+	}
+	else{
+		document.getElementById("checktext2").innerHTML =" ";
+		}
+	return check;
+}</script>
 <style>
 * {
 	paddng: 10px;
@@ -21,9 +35,10 @@
 	<br>
 	<br>
 	<form method="post" action="login" id="login">
-		手机号:<input type="text" name="phonenumber"
-			oninput="value=value.replace(/[^\d]/g,'')"><br> 密码:<input
-			type="password" name="password"><br> <input
+		手机号:<input type="text" name="phonenumber" id="number"
+			onblur="checknumber()"><span id="checktext2"></span><br>密码:<input
+			type="password" name="password" id="number"
+			onblur="checknumber()"><span id="checktext2"></span><br> <input
 			type="submit" value="提交">
 	</form>
 </body>

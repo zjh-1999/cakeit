@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import io.cakeit.entity.Cart;
 import io.cakeit.entity.Item;
-import io.cakeit.util.Cart;
 
 @WebServlet("/AddToCart")
 public class AddToCartServlet extends HttpServlet {

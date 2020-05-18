@@ -3,6 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <title>SignUp</title>
+<script type="text/javascript">
+
+function createXMLHttpRequest(){//创建浏览器连接
+    try{
+        return new XMLHttpRequest();//不同浏览器的兼容IE7+, Firefox, Chrome, Opera, Safari
+    }catch(e){
+        try{
+            return new ActiveXObject(Msxm12.XMLHTTP);
+        }catch(e){
+            try{
+                return new ActiveXObject(Microsoft.XMLHTTP);
+            }catch(e){
+                throw e;
+            }
+        }
+    }
+}
+
+window.onload = function(){
+    var uname = document.getElementById("uname");
+    uname.onblur = function(){
+        //1、得到异步对象
+        var xmlhttp = createXMLHttpRequest();
+        //2、打开连接
+        var user = uname.value;
+        xmlhttp.open("POST","ajax?username="+user,true)
+        //3、设置请求头
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+        //4、发送请求，只有在post的时候提交请求的时候才有用
+        xmlhttp.send(null);
+        //5、给xmlhttp的onreadystatechange事件注册监听
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){//对象读取服务器响应结束且数据交易完成
+                var span = document.getElementById("span");
+                if(xmlhttp.responseText == "1"){
+                    span.innerHTML = " × 该账号已被占用";
+        			document.getElementById("span").style.color="red";
+                }if(xmlhttp.responseText == "2"){
+                    span.innerHTML = "√";
+                }
+            }
+        };
+    };
+};
+
+	function checkpwd() {
+		var check = false;
+		var reg=/^{6-18}$/;
+		var password = document.getElementById("password").value;
+		if (password.length < 6||password.length>18) {
+			document.getElementById("checktext").innerHTML = " × 密码长度需要6-18位，请重新输入";
+			document.getElementById("checktext").style.color="red";
+			check = false;
+		}
+		else{
+			document.getElementById("checktext").innerHTML ="√";
+		}
+		return check;
+	}
+	
+	function checknumber() {
+		var check = false;
+		var number = document.getElementById("number").value;
+		if(!(/^1[3456789]\d{9}$/.test(number))){ 
+			document.getElementById("checktext2").innerHTML = "  × 手机号格式错误，请重新输入";
+			document.getElementById("checktext2").style.color="red";
+		}
+		else{
+			document.getElementById("checktext2").innerHTML ="√";
+			}
+		return check;
+	}
+</script>
 <style>
 * {
 	paddng: 10px;
@@ -20,15 +93,15 @@
 	<br>
 	<br>
 	<br>
-	<form method="post" action="signup" id="signup">
-		用户名:<input type="text" name="username"><br> 
-		密码:<input type="password" name="password"><br> 
-		性别:<input
-			type="radio" name="gender" value="male">男&nbsp;&nbsp; <input
-			type="radio" name="gender" value="female">女<br> 
-		手机号:<input type="text" name="phonenumber"
-			oninput="value=value.replace(/[^\d]/g,'')"><br> 
-		<input type="submit" value="提交">
+	<form method="post" action="signup" id="signup" name="signup">
+		用户名:<input type="text" name="username" id="uname"><span
+			id="span"></span><br> 密码:<input type="password" name="password"
+			id="password" onblur="checkpwd()"><span id="checktext"></span><br>
+		性别:<input type="radio" name="gender" value="male">男&nbsp;&nbsp;
+		<input type="radio" name="gender" value="female">女<br>
+		手机号:<input type="text" name="phonenumber" id="number"
+			onblur="checknumber()"><span id="checktext2"></span><br>
+		<input type="submit" value="提交" name="submit">
 	</form>
 </body>
 </html>

@@ -19,9 +19,9 @@ public class DB {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	String driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/java?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
+	String url = "jdbc:mysql://localhost:3306/cakeit?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
 	String user = "root";
-	String psw = "179917";
+	String psw = "zjh19990114";
 
 	public DB() {
 		try {
@@ -41,7 +41,7 @@ public class DB {
 			pstmt.setString(1, user.getUsername());
 			pstmt.setString(2, user.getPassword());
 			pstmt.setString(3, user.getSex());
-			pstmt.setInt(4, user.getPhonenumber());
+			pstmt.setString(4, user.getPhonenumber());
 			int result = pstmt.executeUpdate();
 			if (result != 0) {
 				return true;
@@ -51,19 +51,40 @@ public class DB {
 		}
 		return false;
 	}
+	
 
-	public User login(int phonenumber, String password) {
+	public User findUsername(String username) {
+		String sql = "select * from users where username=?";
+		User user = null;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, username);
+			rs = pstmt.executeQuery();
+			if (rs != null) {
+				while (rs.next())
+					user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
+							rs.getString("sex"), rs.getString("phonenumber"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
+	}
+	
+
+	public User login(String phonenumber, String password) {
 		String sql = "select * from users where phonenumber=? and password=?";
 		User user = null;
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, phonenumber);
+			pstmt.setString(1, phonenumber);
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
 			if (rs != null) {
 				while (rs.next())
 					user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
-							rs.getString("sex"), rs.getInt("phonenumber"));
+							rs.getString("sex"), rs.getString("phonenumber"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
